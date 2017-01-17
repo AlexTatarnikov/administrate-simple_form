@@ -24,7 +24,11 @@ and is augmented with [Selectize].
 </div>
 
 <div class="field-unit__field">
-  <%= f.association(field.attribute, label: false) %>
+  <%= f.input_field field.attribute, as: :select,
+                    collection: field.associated_resource_options,
+                    selected: field.selected_options,
+                    include_blank: true,
+                    multiple: true %>
   <%= f.error field.attribute %>
   <%= f.hint field.attribute %>
 </div>
