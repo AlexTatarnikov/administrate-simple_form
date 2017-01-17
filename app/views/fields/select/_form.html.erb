@@ -20,12 +20,10 @@ to be displayed on a resource's edit form page.
 </div>
 
 <div class="field-unit__field">
-  <%= f.input_field field.attribute, as: :select, collection: options_from_collection_for_select(
-    field.selectable_options,
-    :to_s,
-    :to_s,
-    field.data.presence,
-  ) %>
+  <%= f.input_field field.attribute, as: :select,
+                    collection: field.selectable_options,
+                    label_method: :to_s,
+                    value_method: :to_s %>
   <%= f.error field.attribute %>
   <%= f.hint field.attribute %>
 </div>
