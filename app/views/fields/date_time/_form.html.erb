@@ -21,7 +21,7 @@ By default, the input is a text field that is augmented with [DateTimePicker].
 </div>
 
 <div class="field-unit__field">
-  <%= f.input_field field.attribute, input_html: { class: "datetimepicker" } %>
+  <%= f.input_field field.attribute, as: :string, class: "datetimepicker" %>
   <%= f.error field.attribute %>
   <%= f.hint field.attribute %>
 </div>
