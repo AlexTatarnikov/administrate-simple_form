@@ -14,4 +14,13 @@ This partial renders a textarea element for a text attribute.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Text
 %>
 
-<%= f.input field.attribute, as: :text, administrate_input_group_wrapper_html: { class: "field-unit--#{field.html_class}" } %>
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+
+<div class="field-unit__field">
+  <%= f.input_field field.attribute, as: :text %>
+  <%= f.error field.attribute %>
+  <%= f.hint field.attribute %>
+</div>
+
