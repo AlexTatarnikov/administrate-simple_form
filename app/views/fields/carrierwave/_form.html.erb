@@ -1,0 +1,26 @@
+<%#
+# Carrierwave Form Partial
+
+This partial renders a file input field and a summary of the current
+attachment(s) for this attribute
+
+## Local variables:
+
+- `f`:
+  A Rails form generator, used to help create the appropriate input fields.
+- `field`:
+  An instance of Administrate::Field::Carrierwave.
+  A wrapper around the attribute pulled from the database.
+%>
+
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <%= f.input_field field.attribute, as: :file, multiple: field.multiple? %>
+  <br />
+  <%= f.error field.attribute %>
+  <%= f.hint field.attribute %>
+  <br />
+  <%= render 'fields/carrierwave/show', field: field %>
+</div>
