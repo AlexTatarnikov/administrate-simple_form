@@ -8,7 +8,7 @@ that displays all possible records to associate with.
 ## Local variables:
 
 - `f`:
-  A Rails form generator, used to help create the appropriate input fields.
+  A simple form generator, used to help create the appropriate input fields.
 - `field`:
   An instance of [Administrate::Field::BelongsTo][1].
   Contains helper methods for displaying a collection select box.
@@ -20,9 +20,14 @@ that displays all possible records to associate with.
 </div>
 
 <div class="field-unit__field">
-  <%= f.select(field.permitted_attribute, nil, {}) do %>
-      <%= options_for_select(field.associated_resource_options, field.selected_option) %>
-  <% end %>
+  <%= f.input_field field.permitted_attribute,
+                    as: :select,
+                    collection: field.associated_resource_options.reject(&:nil?),
+                    selected: field.selected_option,
+                    include_blank: true,
+                    multiple: false %>
+  <%= f.error field.attribute %>
+  <%= f.hint field.attribute %>
 </div>
 
 
